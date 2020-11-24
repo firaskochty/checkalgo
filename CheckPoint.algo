@@ -1,0 +1,67 @@
+//Problem 1
+ALGORITHM Distincts_Sum
+VAR
+    i,j,sum : INTEGER := 0 ; 
+    set1: ARRAY_OF INTEGER[4]; 
+    set2: ARRAY_OF INTEGER[5]; 
+    
+BEGIN
+    set1 := {12,13,6,10};
+    set2 := {3,13,10,16,15};
+
+    Write("Distincts elements: "); 
+
+    FOR i FROM 0 TO set1.length -1  DO  
+    
+            FOR i FROM 0 TO set2.length -1 DO
+                IF ( set1[i] = set2[j] ) THEN 
+                    BREAK; 
+                END_IF
+                IF ( j = set2.length -1 ) THEN 
+                    Write( " element: ",set1[i] ); 
+                    sum := sum + set1[i]; 
+                END_IF
+            END_FOR
+    END_FOR
+
+    FOR i FROM 0 TO set2.length - 1 DO  
+            FOR i FROM 0 TO set1.length - 1 DO
+                IF ( set2[i] = set1[j] ) THEN
+                    BREAK;
+                END_IF
+                IF ( j = set1.length - 1 ) THEN
+                    Write( " element: ",set2[i] );
+                    sum := sum + set2[i];
+                END_IF
+            END_FOR
+    END_FOR
+
+    Write("Sum Distincts elements ", sum);
+END
+
+
+
+
+// Problem 2
+
+ALGORITHM common_overlap
+VAR
+    i,j,sum : INTEGER := 0 ;
+    set1: ARRAY_OF INTEGER[4];
+    set2: ARRAY_OF INTEGER[4];
+    
+BEGIN
+    Write("Commons elements: ");
+
+    FOR i FROM 0 TO set1.length DO
+            FOR i FROM 0 TO set2.length DO
+                IF ( set2[i] = set1[i] ) THEN
+                    Write("element ",set[i]);
+                    sum := sum + set1[j] + set2[i];
+                    BREAK;
+                END_IF
+            END_FOR
+    END_FOR
+
+    Write("Sum Overlaps Common elements ", sum);
+END
